@@ -1,21 +1,21 @@
 class Container {
   constructor() {
-    this.factories = {}
-    this.singletons = {}
+    this.factories = {};
+    this.singletons = {};
   }
   register(name, factory, { singleton = true } = {}) {
-    this.factories[name] = { factory, singleton }
+    this.factories[name] = { factory, singleton };
   }
   get(name) {
-    const entry = this.factories[name]
-    if (!entry) throw new Error(`'${name}' not found`)
+    const entry = this.factories[name];
+    if (!entry) throw new Error(`'${name}' not found`);
     if (entry.singleton) {
       if (!this.singletons[name]) {
-        this.singletons[name] = entry.factory(this)
+        this.singletons[name] = entry.factory(this);
       }
-      return this.singletons[name]
+      return this.singletons[name];
     }
-    return entry.factory(this)
+    return entry.factory(this);
   }
 }
-module.exports = new Container()
+module.exports = new Container();

@@ -1,15 +1,15 @@
 class Locator {
   constructor() {
-    this.services = {}
+    this.services = {};
   }
 
   register(key, instance) {
-    this.services[key] = instance
+    this.services[key] = instance;
   }
 
   get(key) {
-    return this.services[key]
+    return this.services[key];
   }
 }
 
-module.exports = new Locator()
+module.exports = new Locator();
